@@ -1,22 +1,37 @@
-<div class="">
-  <nav class="light-blue darken-4">
-    <div class="nav-wrapper">
-      <!-- <a href="#!" class="brand-logo">Logo</a> -->
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="mdi mdi-menu"></i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a routerLink="estudiantes">estudiante</a></li>
-        <li><a routerLink="profesores">profesor</a></li>
-        <li><a routerLink="videos">video</a></li>
-        <li><a routerLink="pagar">pagar </a></li>
-      </ul>   
-    </div>
-  </nav>
-</div>
-  <ul class="sidenav" id="mobile-demo">
-    <li><a routerLink="estudiantes">estudiante</a></li>
-    <li><a routerLink="profesores">profesor</a></li>
-    <li><a routerLink="videos">video</a></li>
-    <li><a routerLink="pagar">pagar </a></li>
-  </ul>
+<nav class="light-blue darken-4">
+  <div class="nav-wrapper">
+    <!-- <a href="#!" class="brand-logo">Logo</a> -->
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+      <i class="mdi mdi-menu"></i>
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a routerLink="estudiantes">estudiante</a>
+      </li>
+      <li>
+        <a routerLink="profesores">profesor</a>
+      </li>
+      <li>
+        <a routerLink="videos">video</a>
+      </li>
+      <li>
+        <a routerLink="pagar">pagar </a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-
+<ul class="sidenav" id="mobile-demo">
+  <li>
+    <a routerLink="estudiantes" class="sidenav-close">estudiante</a>
+  </li>
+  <li>
+    <a routerLink="profesores" class="sidenav-close">profesor</a>
+  </li>
+  <li>
+    <a routerLink="videos" class="sidenav-close">video</a>
+  </li>
+  <li>
+    <a routerLink="pagar" class="sidenav-close">pagar </a>
+  </li>
+</ul>

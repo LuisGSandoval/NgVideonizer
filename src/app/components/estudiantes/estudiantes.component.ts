@@ -8,15 +8,17 @@ import { ContractService } from '../../services/contract.service';
   providers: [ContractService]
 })
 export class EstudiantesComponent implements OnInit {
-
-  constructor() { }
   public balance: number;
+
+  constructor(contract: ContractService) {
+    contract.getUserBalance().then(balance => this.balance = balance )
+   }
 
   ngOnInit() {
   }
 
-  crearEstudiante(contract: ContractService){
-    contract.getUserBalance().then(balance => this.balance = balance )
-  }
+  // crearEstudiante(){
+  //   contract.getAccount().then(balance => this.balance = balance )
+  // }
 
 }

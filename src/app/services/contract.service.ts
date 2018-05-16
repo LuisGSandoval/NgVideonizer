@@ -1,4 +1,4 @@
-import * as Web3 from 'web3';
+import Web3 from 'web3';
 import { Injectable } from '@angular/core';
 declare let require: any;
 declare let window: any;
@@ -212,7 +212,7 @@ export class ContractService {
     if (typeof window.web3 !== 'undefined') {
       // Use Mist/MetaMask's provider
       this._web3 = new Web3(window.web3.currentProvider);
-
+      console.log(this._web3.version.network)
       if (this._web3.version.network !== '4') {
         alert('Please connect to the Rinkeby network');
       }
@@ -225,7 +225,7 @@ export class ContractService {
     this._tokenContract = this._web3.eth.contract(tokenAbi).at(this._tokenContractAddress);
   }
 
-  private async getAccount(): Promise<string> {
+  public async getAccount(): Promise<string> {
     if (this._account == null) {
       this._account = await new Promise((resolve, reject) => {
         this._web3.eth.getAccounts((err, accs) => {
@@ -267,6 +267,8 @@ export class ContractService {
     }) as Promise<number>;
   }
 
-  
+  pagarContrato(){
+
+  }
 
 }
