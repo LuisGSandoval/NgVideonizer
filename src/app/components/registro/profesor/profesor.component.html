@@ -1,30 +1,27 @@
-<div class="container">
-    <div class="row">
-  
-      <h4 class="" *ngIf="TeachersName">
-        Hola {{ TeachersName }} {{ TeachersLastName }}
-      </h4>
-  
-      <div class="card col s12 m6 border-ra-10 mt-2">
-        <div class="input-field">
-          <input id="TeachersName" type="text" [(ngModel)]='TeachersName' class="validate">
-          <label for="TeachersName">Nombre</label>
-        </div>
-        <div class="input-field">
-          <input id="TeachersLastName" type="text" [(ngModel)]='TeachersLastName' class="validate">
-          <label for="TeachersLastName">Apellido</label>
-        </div>
-        <div class="input-field">
-          <input id="videoDetail" type="text" [(ngModel)]='videoDetail' class="validate">
-          <label for="videoDetail">Detalle del video</label>
-        </div>
-        <div class="input-field">
-          <input id="hashVideo" type="text" [(ngModel)]='hashVideo' class="validate">
-          <label for="hashVideo">hash el video</label>
-        </div>
-        <div class="center mb-1">
-          <a class="waves-effect waves-teal btn" (click)="thanks4registering()">Button</a>
-        </div>
-      </div>
-    </div>
+<div class="col s12 m10 offset-m1">
+  <h4 class="" *ngIf="TeachersName">
+    Hola {{ TeachersName }} {{ TeachersLastName }}
+  </h4>
+</div>
+
+<div class="card col s12 m10 offset-m1 border-ra-10 mt-2">
+  <div class="input-field">
+    <input id="TeachersName" type="text" [(ngModel)]='TeachersName' class="validate">
+    <label for="TeachersName">Nombre</label>
   </div>
+  <div class="input-field">
+    <input id="TeachersLastName" type="text" [(ngModel)]='TeachersLastName' class="validate">
+    <label for="TeachersLastName">Apellido</label>
+  </div>
+  <div class="input-field">
+    <input id="videoDetail" type="text" [(ngModel)]='videoDetail' class="validate">
+    <label for="videoDetail">Detalle del video</label>
+  </div>
+  <div class="input-field">
+    <input id="hashVideo" type="text" [(ngModel)]='hashVideo' class="validate">
+    <label for="hashVideo">hash el video</label>
+  </div>
+  <div class="center mb-1">
+    <a class="waves-effect waves-teal btn" (click)="thanks4registering()">registrar</a>
+  </div>
+</div>

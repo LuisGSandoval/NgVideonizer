@@ -1,12 +1,15 @@
 <nav class="light-blue darken-4">
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">
-      <img src="assets/img/Bituni-Logo-Blanco.png" alt="Bitcoin University Logotype" height="70">
+      <img src="assets/img/logotype.png" alt="Bitcoin University Logotype" height="50">
     </a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
       <i class="mdi mdi-menu"></i>
     </a>
     <ul class="right hide-on-med-and-down">
+      <li>
+        <a routerLink="register">register</a>
+      </li>
       <!-- <li>
         <a routerLink="student">student</a>
       </li>
@@ -19,14 +22,15 @@
       <li>
         <a routerLink="payEveryOne">pay contract</a>
       </li>
-      <li>
-        <a routerLink="register">register</a>
-      </li>
+
     </ul>
   </div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
+  <li>
+    <a routerLink="register" class="sidenav-close">register</a>
+  </li>
   <!-- <li>
     <a routerLink="student" class="sidenav-close">student</a>
   </li>
@@ -39,7 +43,5 @@
   <li>
     <a routerLink="payEveryOne" class="sidenav-close">pay contract</a>
   </li>
-  <li>
-    <a routerLink="register" class="sidenav-close">register</a>
-  </li>
+
 </ul>

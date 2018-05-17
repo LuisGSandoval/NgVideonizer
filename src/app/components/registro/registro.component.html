@@ -1,23 +1,27 @@
 <div class="container">
   <h3>Registrate con nosotros</h3>
 
+  <div class="row">
+    <div class="col s12 m10 offset-m1">
+      <ul id="tabs" class="tabs tabs-fixed-width tab-demo z-depth-1">
+        <li class="tab">
+          <a href="#test1">Usuario</a>
+        </li>
+        <li class="tab">
+          <a href="#test2">Experto</a>
+        </li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12">
+      <p>
+        <app-estudiante></app-estudiante>
+      </p>
+    </div>
+    <div id="test2" class="col s12">
+      <p>
+        <app-profesor></app-profesor>
+      </p>
+    </div>
 
-  <ul id="tabs"  class="tabs tabs-fixed-width tab-demo z-depth-1">
-    <li class="tab">
-      <a href="#test1">Estudiante</a>
-    </li>
-    <li class="tab">
-      <a href="#test2">Profesor</a>
-    </li>
-  </ul>
-  <div id="test1" class="col s12">
-    <p>
-      <app-estudiante></app-estudiante>
-    </p>
   </div>
-  <div id="test2" class="col s12">
-    <p><app-profesor></app-profesor> </p>
-  </div>
-
-
 </div>
