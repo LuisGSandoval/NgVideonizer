@@ -5,20 +5,19 @@ import { ContractService } from '../../services/contract.service';
   selector: 'app-estudiantes',
   templateUrl: './estudiantes.component.html',
   styleUrls: ['./estudiantes.component.css'],
-  providers: [ContractService]
 })
 export class EstudiantesComponent implements OnInit {
-  public balance: number;
+  public balance: string;
+  ageSelected:string;
 
-  constructor(contract: ContractService) {
-    contract.getUserBalance().then(balance => this.balance = balance )
-   }
+  constructor(public contract: ContractService) {
+    contract.getAccount().then(balance => this.balance = balance )
+  }
 
   ngOnInit() {
   }
 
-  // crearEstudiante(){
-  //   contract.getAccount().then(balance => this.balance = balance )
-  // }
-
+  setAgeComponent(){    
+    this.contract.setAge(this.ageSelected);
+  }
 }

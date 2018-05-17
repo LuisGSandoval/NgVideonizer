@@ -1,5 +1,28 @@
 <div class="container">
-  Balance: <span>{{balance}}</span>
+  Account:
+  <span>{{balance}}</span>
+
+
+  <div class="row">
+    <div class="card col s12 m5">
+      <div class="input-field">
+        <input id="setAgeInput" type="text" [(ngModel)]='ageSelected' class="validate">
+        <label for="setAgeInput">Set Age</label>
+      </div>
+      <div class="center">
+        <a class="waves-effect waves-teal btn" (click)="setAgeComponent()">Button</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card col s12 m5">
+      <p> {{ ageSelected }} </p>
+    </div>
+  </div>
+
+
+
+
 
 </div>
-

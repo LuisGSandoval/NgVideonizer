@@ -3,200 +3,7 @@ import { Injectable } from '@angular/core';
 declare let require: any;
 declare let window: any;
 
-let tokenAbi = [
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "buyVideo",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "Payable",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "PayContract",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_fName",
-				"type": "string"
-			},
-			{
-				"name": "_lName",
-				"type": "string"
-			}
-		],
-		"name": "setStudent",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_fName",
-				"type": "string"
-			},
-			{
-				"name": "_lName",
-				"type": "string"
-			},
-			{
-				"name": "_videoDescription",
-				"type": "string"
-			},
-			{
-				"name": "_videoHash",
-				"type": "string"
-			}
-		],
-		"name": "setTeacher",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "ContractBalance",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getActiveStudents",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "getStudent",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "bool"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getStudents",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "studentsAccounts",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "teachersAccounts",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
+let tokenAbi = require('./tokenABI.json');
 
 
 @Injectable({
@@ -207,7 +14,7 @@ export class ContractService {
   private _web3: any;
 
   private _tokenContract: any;
-  private _tokenContractAddress: string = "0xc1835ea0ce3b403dbfcfd43887a599de6f40d94bf1b3d7fba447d457fcb436a2";
+  private _tokenContractAddress: string = "0x8d56f252eeff5fd190f93ef7e27cae1be9e05bf075c39089be534e97b6f5edb5";
   constructor() {
     if (typeof window.web3 !== 'undefined') {
       // Use Mist/MetaMask's provider
@@ -220,9 +27,11 @@ export class ContractService {
       console.warn(
         'Please use a dapp browser like mist or MetaMask plugin for chrome'
       );
-    }
+		}
+		
 
-    this._tokenContract = this._web3.eth.contract(tokenAbi).at(this._tokenContractAddress);
+		this._tokenContract = this._web3.eth.contract(tokenAbi).at(this._tokenContractAddress);
+		// this._tokenContract = this._web3.eth.contract(tokenAbi).at("0x8d56f252eeff5fd190f93ef7e27cae1be9e05bf075c39089be534e97b6f5edb5");
   }
 
   public async getAccount(): Promise<string> {
@@ -252,12 +61,12 @@ export class ContractService {
 
 
 
-  public async getUserBalance(): Promise<number> {
+  public async setAge(ageSelected): Promise<number> {
     let account = await this.getAccount();
-  
+    console.log(ageSelected)
     return new Promise((resolve, reject) => {
       let _web3 = this._web3;
-      this._tokenContract.balanceOf.call(account, function (err, result) {
+      this._tokenContract.setAge(ageSelected, function (err, result) {
         if(err != null) {
           reject(err);
         }
@@ -265,10 +74,17 @@ export class ContractService {
         resolve(_web3.fromWei(result));
       });
     }) as Promise<number>;
-  }
+	}
+	
+	// setAge(ageSelected){
+	// 	this._tokenContract.setAge(ageSelected, (err,res)=>{
+	// 		if(err){
+	// 			alert('Please try again.')
+	// 			return;
+	// 		}
+	// 		console.log(ageSelected + ', sin errores');
+	// 	})
+	// }
 
-  pagarContrato(){
-
-  }
 
 }
