@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+
+    <h4 class="" *ngIf="StudentName">
+      Hola {{ StudentName }} {{ StudentLastName }}
+    </h4>
+
+    <div class="card col s12 m6 border-ra-10 mt-2">
+      <div class="input-field">
+        <input id="setNameInput" type="text" [(ngModel)]='StudentName' class="validate">
+        <label for="setNameInput">Nombre</label>
+      </div>
+      <div class="input-field">
+        <input id="setLastNameInput" type="text" [(ngModel)]='StudentLastName' class="validate">
+        <label for="setLastNameInput">Apellido</label>
+      </div>
+      <div class="center mb-1">
+        <a class="waves-effect waves-teal btn" (click)="thanks4registering()">Button</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,9 @@ import { EstudiantesComponent } from './components/estudiantes/estudiantes.compo
 import { ProfesoresComponent } from './components/profesores/profesores.component';
 import { VideoComponent } from './components/video/video.component';
 import { PagarContratoComponent } from './components/pagar-contrato/pagar-contrato.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { EstudianteComponent } from './components/registro/estudiante/estudiante.component';
+import { ProfesorComponent } from './components/registro/profesor/profesor.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { PagarContratoComponent } from './components/pagar-contrato/pagar-contra
     EstudiantesComponent,
     ProfesoresComponent,
     VideoComponent,
-    PagarContratoComponent
+    PagarContratoComponent,
+    RegistroComponent,
+    EstudianteComponent,
+    ProfesorComponent
   ],
   imports: [
     BrowserModule,

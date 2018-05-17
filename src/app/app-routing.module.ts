@@ -6,12 +6,14 @@ import { EstudiantesComponent } from './components/estudiantes/estudiantes.compo
 import { ProfesoresComponent } from './components/profesores/profesores.component';
 import { VideoComponent } from './components/video/video.component';
 import { PagarContratoComponent } from './components/pagar-contrato/pagar-contrato.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
-  {path: 'estudiantes', component: EstudiantesComponent},
-  {path: 'profesores', component: ProfesoresComponent},
-  {path: 'videos', component: VideoComponent},
-  {path: 'pagar', component: PagarContratoComponent},
+  {path: 'student', component: EstudiantesComponent},
+  {path: 'teacher', component: ProfesoresComponent},
+  {path: 'video', component: VideoComponent},
+  {path: 'payEveryOne', component: PagarContratoComponent},
+  {path: 'register', component: RegistroComponent},
 ];
 
 @NgModule({
